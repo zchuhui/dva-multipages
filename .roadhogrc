@@ -1,0 +1,41 @@
+{
+  "entry": ["src/pages/index.js","src/pages/login.js"],
+  "disableCSSModules": false,
+  "publicPath": "/",
+  "theme": null,
+  "outputPath": "./dist",
+  "autoprefixer": null,
+  "proxy": {
+    "/api": {
+      "target": "http://jsonplaceholder.typicode.com/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    },
+    "/login": {
+      "target": "http://localhost:8000/",
+      "pathRewrite": { "^/login" : "/login.html" }
+    }
+  },
+  "extraBabelPlugins": [
+    "transform-runtime",
+    ["import", { "libraryName": "antd", "style": true }]
+  ],
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr"
+      ]
+    }
+  },
+  "multipage": false,
+  "dllPlugin": {
+    "exclude": [
+      "babel-runtime"
+    ],
+    "include": [
+      "dva/router",
+      "dva/saga",
+      "dva/fetch"
+    ]
+  }
+}
