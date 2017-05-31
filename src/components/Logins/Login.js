@@ -5,18 +5,18 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  }
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    return (
-      <div className = { styles.loginWrap }>
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    }
+    render() {
+        const { getFieldDecorator } = this.props.form;
+        return (
+            <div className = { styles.loginWrap }>
 	      <Form onSubmit={this.handleSubmit} className="login-form">
 	        <FormItem>
 	          {getFieldDecorator('userName', {
@@ -47,8 +47,8 @@ class NormalLoginForm extends React.Component {
 	        </FormItem>
 	      </Form>
       </div>
-    );
-  }
+        );
+    }
 }
 
 

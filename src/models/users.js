@@ -14,6 +14,7 @@ export default {
     },
   },
   effects: {
+    
   	// 获取数据
   	*fetch({ payload: { page = 1 } }, { call, put }) {
       const { data, headers } = yield call(usersService.fetch, { page });
