@@ -1,5 +1,9 @@
 {
-  "entry": ["src/pages/index.js","src/pages/login.js"],
+  "entry": [
+    "src/pages/login/login.js",
+    "src/pages/module-1/module-1.js",
+    "src/pages/home/index.js"
+    ],
   "disableCSSModules": false,
   "publicPath": "/",
   "theme": null,
@@ -12,8 +16,12 @@
       "pathRewrite": { "^/api" : "" }
     },
     "/login": {
-      "target": "http://localhost:8000/",
+      "target": "http://localhost:3000/",
       "pathRewrite": { "^/login" : "/login.html" }
+    },
+    "/module-1": {
+      "target": "http://localhost:3000/",
+      "pathRewrite": { "^/module-1" : "/module-1.html" }
     }
   },
   "extraBabelPlugins": [

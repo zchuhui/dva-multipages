@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "roadhog server",
+    "start": "set PORT=3000&&roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint"
@@ -23,6 +23,7 @@
     "babel-plugin-import": "^1.2.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "css-loader": "^0.28.4",
+    "dora-plugin-browser-history": "^0.2.0",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -36,5 +37,4 @@
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1"
   }
-  
 }

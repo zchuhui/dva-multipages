@@ -1,6 +1,6 @@
 
 export default {
-  namespace: 'login',
+  namespace: 'LoginModel',
   state: {
   	username:'',
   	message:[],

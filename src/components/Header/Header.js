@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'dva/router';
 import styles from './Header.css';
-import './test.css';
 
 // 公共头部
 class Header extends Component {
@@ -14,17 +13,15 @@ class Header extends Component {
             loginState: false,
         };
     };
-
+    
     render() {
         return (
             <div className={ styles.header }>
-                <span className="home">  
-                    <Link to="">Home</Link> 
-                    &nbsp; / &nbsp;
-                    <Link to="users">Users</Link> 
-                </span>
-                <Link to="/login" className="fr">登录</Link>
-            
+                <a href="/">首页</a>
+                &nbsp; / &nbsp;
+                <a href="/module-1">模块 - 1</a>
+                &nbsp; / &nbsp;
+                <a href="/login">登录</a>
             </div>
         );
     }
