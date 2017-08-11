@@ -24,29 +24,44 @@ $ npm start
 
 ```
 ├── mock 
-├── public            //页面
+├── public            // 页面
 │   ├── index.html
+│   ├── module-1.html
 │   └── login.html
 │
 ├── src 
 │   ├── common        //静态文件
-│   ├── components    //组件
+│   ├── components    //公用组件
 │   ├── models      
-│   ├── pages         //页面对应的js文件
-│   │   ├── index.js
-│   │   └── login.js
+│   ├── pages         // 多页面模块，每个页面组成一个模块
+│   │   ├── home      // home 模块
+│   │   │   ├── models     // 数据模块文件
+│   │   │   ├── routes     // 页面数据路由文件
+│   │   │   ├── views      // 页面文件
+│   │   │   ├── routes.js  // 路由
+│   │   │   └── home.js    // 启动文件
+│   │   │   
+│   │   ├── login          // 登录模块
+│   │   │   ├── models     // 数据模块文件
+│   │   │   ├── routes     // 页面数据路由文件
+│   │   │   ├── views      // 页面文件
+│   │   │   ├── routes.js  // 路由
+│   │   │   └── home.js    // 启动文件
+│   │   │ 
+│   │   └── module-1       // 模块1
+│   │       ├── models     // 数据模块文件
+│   │       ├── routes     // 页面数据路由文件
+│   │       ├── views      // 页面文件
+│   │       ├── routes.js  // 路由
+│   │       └── home.js    // 启动文件
+│   │
 │   │ 
-│   ├── routes         //组件路由
-│   │   ├── Users.js
-│   │   └── IndexPage.js
 │   │ 
 │   ├── services       //数据操作
 │   ├── utils       
 │   │   └──request.js  //定义统一的请求接口
 │   │
 │   ├── constants.js    // 常量集
-│   ├── loginRouter.js  // 页面路由（登录页）
-│   └── router.js       // 页面路由（默认页） 
 │
 ├── .editorconfig
 ├── .eslintrc
@@ -60,23 +75,31 @@ $ npm start
 ```
 
 
-## 三、多页面设置
+## 三、多页面配置
 
 在 `.roandhogrc` 文件里面设置
 ```
-...
-"autoprefixer": null,
+"entry": [
+    "src/pages/login/login.js",
+    "src/pages/module-1/module-1.js",
+    "src/pages/home/index.js"
+    ],
 "proxy": {
     "/api": {
       "target": "http://jsonplaceholder.typicode.com/",
       "changeOrigin": true,
       "pathRewrite": { "^/api" : "" }
     },
-    "/login": { 
-      "target": "http://localhost:8000/",
+    "/login": {
+      "target": "http://localhost:3000/",
       "pathRewrite": { "^/login" : "/login.html" }
+    },
+    "/module-1": {
+      "target": "http://localhost:3000/",
+      "pathRewrite": { "^/module-1" : "/module-1.html" }
     }
   }
+...
 ```
 默认的文件是`index`，在这里多开一个页面`login`   
 每个页面对应一个路由，`index`页对应的路由是`router.js`，`login` 页对应的 `loginRouter.js`
